@@ -1,5 +1,6 @@
 #Game flow
 def tic_tac_toe():
+	print('\n')
 	print("Tic-Tac-Toe\n")
 	print("Please enter the names of 2 players below.")
 	
@@ -11,23 +12,30 @@ def tic_tac_toe():
 
 	draw_board()
 
+	cells_played = 0
 	while True:
 
-		print(player1.player_name,"'s turn.")
+		print(player1.player_name,"'s turn. (", player1.player_symbol, ")" )
 		play(player1)
 		draw_board()
 		if win(player1):
 			print(player1.player_name," has won.")
 			break
-		else: pass
+		else: 
+			cells_played +=1
+			if cells_played == 9:
+				print("The game ended in a draw.")
 
-		print(player2.player_name,"'s turn.")
+		print(player2.player_name,"'s turn.(", player2.player_symbol, ")")
 		play(player2)
 		draw_board()
 		if win(player2):
 			print(player1.player_name," has won.")
 			break
-		else: pass
+		else: 
+			cells_played +=1
+			if cells_played == 9:
+				print("The game ended in a draw.")
 
 
 		
@@ -63,7 +71,7 @@ def draw_board():
 	print("    a    b    c")
 	for count, row in enumerate(game):
 		print(count, row)
-
+	print('\n')
 
 #Inputs the player's choice into gameboard
 def play(player):
@@ -77,8 +85,9 @@ def play(player):
 			print("Please enter a valid cell.")
 
 	(r,c) = cells[cell]
-
 	game[r][c] = player.player_symbol
+	del cells[cell]
+
 
 
 
@@ -117,6 +126,10 @@ def win(player):
 		return True
 
 	return False 
+
+
+
+
 
 
 
