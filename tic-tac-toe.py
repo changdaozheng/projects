@@ -25,6 +25,7 @@ def tic_tac_toe():
 			cells_played +=1
 			if cells_played == 9:
 				print("The game ended in a draw.")
+				break
 
 		print(player2.player_name,"'s turn.(", player2.player_symbol, ")")
 		play(player2)
@@ -36,6 +37,7 @@ def tic_tac_toe():
 			cells_played +=1
 			if cells_played == 9:
 				print("The game ended in a draw.")
+				break
 
 
 		
