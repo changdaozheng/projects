@@ -104,7 +104,6 @@ def win(player):
 			if game[row][column] == symbol:
 				count += 1
 		if count == 3:
-			print(count)
 			return True
 		else: pass
 
